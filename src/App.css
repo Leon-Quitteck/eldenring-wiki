@@ -1,0 +1,35 @@
+.App {
+  text-align: center;
+}
+
+#Searchbar{
+ margin-top: 5%; 
+}
+
+#Filter{
+  margin-top: 10%;
+  width: auto;
+}
+
+img{
+  width: 80%;
+  height: 80%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+table {
+  width: 40%; 
+  margin: 4% auto; 
+  border-collapse: collapse; 
+  text-align: center; 
+}
+
+th {
+  background-color: #f4f4f4; /* Setzt eine Hintergrundfarbe für die Kopfzeile */
+  padding: 10px;
+}
+td {
+  padding: 10px;
+  border: 1px solid #ddd; 
+  font-size: 90%;
+}
