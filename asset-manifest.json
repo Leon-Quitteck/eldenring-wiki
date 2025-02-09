@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/eldenring-wiki/static/css/main.1aad44e5.css",
+    "main.js": "/eldenring-wiki/static/js/main.9312d98f.js",
+    "static/js/488.af104311.chunk.js": "/eldenring-wiki/static/js/488.af104311.chunk.js",
+    "index.html": "/eldenring-wiki/index.html",
+    "main.1aad44e5.css.map": "/eldenring-wiki/static/css/main.1aad44e5.css.map",
+    "main.9312d98f.js.map": "/eldenring-wiki/static/js/main.9312d98f.js.map",
+    "488.af104311.chunk.js.map": "/eldenring-wiki/static/js/488.af104311.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1aad44e5.css",
+    "static/js/main.9312d98f.js"
+  ]
+}
