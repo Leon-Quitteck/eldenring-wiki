@@ -1,7 +1,7 @@
 {
   "name": "my-react-app",
   "version": "0.1.0",
-  "homepage": "https://leon-quitteck.github.io/eldenring-wiki",
+  "homepage": "https://leon-quitteck.github.io/eldenring-wiki/",
   "private": true,
   "dependencies": {
     "@babel/plugin-transform-class-properties": "^7.25.9",

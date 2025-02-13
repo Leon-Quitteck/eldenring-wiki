@@ -2,13 +2,14 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import { fetchDaten } from './api.js';
 import BossList from './boss.js'; 
+import ItemList from './item.js';
 
 function App() {
   const [daten, setDaten] = useState([]);
   const [fehler, setFehler] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [page, setPage] = useState(0);
-  const [catagoryBoss, setCategoryBoss] = useState('bosses');
+  const [catagory, setCategory] = useState('');
   const [selected, setSelected] = useState(null);
 
   const getBossData = (event) => {
@@ -18,7 +19,7 @@ function App() {
 
   const ladeBossData = async (pageNum) => {
     try {
-      const result = await fetchDaten(inputValue, pageNum); // API-Funktion aufrufen
+      const result = await fetchDaten(inputValue, pageNum, catagory); // API-Funktion aufrufen
       setDaten(result); // Boss-Daten speichern
       setFehler(''); // Fehler zurücksetzen
     } catch (error) {
@@ -54,7 +55,7 @@ function App() {
         window.removeEventListener('keydown', handleKeyDown);
       };
     }
-  }, [inputValue, page]);
+  }, [inputValue, page, catagory]);
 
   const handleNext = () => {
     setPage((prevPage) => {
@@ -72,6 +73,10 @@ function App() {
     });
   };
 
+  const handleCategory = (event) => {
+    setCategory(event.target.value);
+  }
+
   return (
     <div className="App">
       <div id="Filter">
@@ -80,22 +85,13 @@ function App() {
             <tbody>
               <tr id="Boss">
                 <td class="checkbox">
-                  <label>
-                  <input 
-                type="checkbox" 
-                checked={selected === 1}
-                onChange={() => handleCheckboxChange(1)}></input>
-                Items
-                  </label>
-                  </td>
-                <td class="checkbox">
-                  <label>
-                  <input 
-                type="checkbox" 
-                checked={selected === 2}
-                onChange={() => handleCheckboxChange(2)}></input>
-                Bosse
-                  </label>
+                  <label for="cars">Choose a catagory:</label>
+
+<select id="catagorys" value={catagory} onChange={handleCategory}>
+<option value=""></option>
+  <option value="bosses">Bosses</option>
+  <option value="items">Items</option>
+</select>
                   </td>
               </tr>
             </tbody>
@@ -110,7 +106,10 @@ function App() {
       {/* Anzeige der Boss-Daten */}
       <div>
         {fehler && <p>{fehler}</p>}
-        {daten.length > 0 && <BossList daten={daten} />}
+        {daten.length > 0 && catagory === 'bosses' && 
+    <BossList daten={daten} />}
+    {daten.length > 0 && catagory === 'items' && 
+    <ItemList daten={daten} />}
       </div>
       <div>
         <table id="navigation">
